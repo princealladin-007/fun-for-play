@@ -1,0 +1,527 @@
+!DOCTYPE html
+html lang=en
+head
+meta charset=UTF-8
+meta name=viewport content=width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no
+meta name=theme-color content=#071522
+titleFun For Playtitle
+
+!-- Monetag Rewarded Interstitial --
+script src='libtl.comsdk.js' data-zone='11802922' data-sdk='show_11802922'script
+
+style
+{ box-sizingborder-box; -webkit-tap-highlight-colortransparent; }
+html,body{ margin0; padding0; width100%; min-height100%; }
+body{
+    min-height100vh; overflow-xhidden; font-familyArial,Helvetica,sans-serif; color#fff;
+    background radial-gradient(circle at 50% -10%, #6a2c4a 0%, #3d1f52 28%, #1a1a4a 62%, #05050f 100%);
+}
+
+.app{ width100%; max-width480px; min-height100vh; marginauto; padding14px 12px 28px; }
+
+ HEADER & LEVEL 
+.header{ text-aligncenter; }
+.pirate{ font-size47px; line-height1; filterdrop-shadow(0 5px 6px #000); }
+.title{ margin5px 0 0; font-size29px; font-weight1000; letter-spacing1px; color#ffe477; text-shadow 0 3px 0 #684000, 0 5px 12px #000; }
+.subtitle{ margin5px 0 10px; font-size11px; color#aac2ce; }
+
+.top-bar { display flex; justify-content space-between; align-items center; margin-bottom 12px; }
+
+.level-container {
+    background #06141eaa; border 1px solid #42687a; padding 6px 12px; border-radius 20px;
+    font-size 12px; font-weight bold; color #4df3ff; width 48%;
+}
+
+.xp-bar-bg { width 100%; height 6px; background #102633; border-radius 10px; margin-top 4px; overflow hidden; }
+.xp-bar-fill { height 100%; width 0%; background linear-gradient(90deg, #00d2ff, #00fff7); transition width 0.3s ease; }
+
+.balance{
+    displayinline-flex; align-itemscenter; gap8px; padding4px 14px 4px 6px; border-radius30px;
+    background#06141eaa; border1px solid #42687a; box-shadow inset 0 0 15px #0008, 0 5px 15px #0008;
+    width 48%; justify-content center;
+}
+
+.coin{
+    width32px; height32px; displayflex; align-itemscenter; justify-contentcenter; border-radius50%;
+    background radial-gradient(circle at 35% 25%, #fff8b0, #ffd53e 38%, #d79300 72%, #704800);
+    border2px solid #ffe98a; color#674100; font-weight1000; font-size16px;
+}
+
+.balance-number{ font-size18px; font-weight1000; }
+
+ NAV BUTTONS (SIDE TAB SYSTEM) 
+.nav-buttons { display flex; gap 10px; margin-bottom 12px; }
+.nav-btn {
+    flex 1; padding 10px; background #173b4d; border 1px solid #42687a;
+    color #fff; border-radius 12px; font-weight bold; cursor pointer; text-align center; font-size 14px;
+}
+.nav-btn.active { background linear-gradient(180deg, #fff07e, #ffd13e); border-color #ffe477; color #472900; }
+
+ MACHINE & REELS 
+.machine{
+    padding11px; border-radius27px; background linear-gradient(145deg, #1b5269, #09202f);
+    border2px solid #52778a; box-shadow inset 0 0 30px #000b, 0 15px 35px #000b;
+}
+
+.machine-bar{ height11px; margin-bottom10px; border-radius20px; background linear-gradient(90deg, #a66a0b, #ffe36c, #b97710, #ffe36c, #a66a0b); }
+.reel-frame{ positionrelative; padding9px; border-radius21px; background linear-gradient(145deg, #0a1720, #02080d); border4px solid #c58a25; }
+.reels{ displaygrid; grid-template-columns repeat(3,1fr); gap8px; }
+.reel{ positionrelative; height154px; overflowhidden; border-radius15px; background linear-gradient(90deg, #bfcbd0, #ffffff, #d0dade); border3px solid #687b83; }
+.reel-center{ positionabsolute; left0; right0; top50%; height2px; z-index10; background#ffd02e; box-shadow 0 0 8px #ffae00; }
+.reel-fade{ positionabsolute; inset0; z-index8; pointer-eventsnone; background linear-gradient(to bottom, #fff 0%, transparent 25%, transparent 75%, #fff 100%); opacity.65; }
+.symbols{ positionabsolute; left0; right0; top0; displayflex; flex-directioncolumn; align-itemscenter; }
+.symbol{ width100%; height154px; displayflex; align-itemscenter; justify-contentcenter; font-size64px; }
+.reel.spinning .symbols{ filterblur(2px); }
+
+ TAB SECTIONS 
+.tab-content { display none; }
+.tab-content.active { display block; }
+
+ WITHDRAW SECTION 
+.withdraw-card {
+    background #09202f; border 2px solid #52778a; border-radius 20px; padding 16px; margin-top 5px;
+}
+.withdraw-title { text-align center; color #ffe477; font-size 20px; font-weight bold; margin-bottom 12px; }
+.withdraw-form label { font-size 12px; color #8da6b2; margin-bottom 4px; display block; }
+.withdraw-form input, .withdraw-form select {
+    width 100%; padding 12px; margin-bottom 12px; border-radius 10px;
+    border 1px solid #355768; background #06141e; color #fff; font-size 14px;
+}
+.withdraw-btn {
+    width 100%; height 50px; background linear-gradient(180deg, #28a745, #1e7e34); border 1px solid #5cdb95;
+    color white; font-size 16px; border-radius 12px; font-weight bold; cursor pointer;
+}
+
+ PAYTABLE & STATUS 
+.paytable{ margin-top12px; padding9px; border-radius14px; background#06131daa; border1px solid #355768; }
+.pay-title{ text-aligncenter; margin-bottom6px; color#ffd95a; font-size11px; font-weight1000; }
+.pay-row{ displayflex; justify-contentspace-between; padding3px 6px; font-size11px; color#d5e2e8; }
+.pay-row spanlast-child{ color#ffe16b; font-weight1000; }
+.status{ min-height39px; displayflex; align-itemscenter; justify-contentcenter; text-aligncenter; margin-top10px; font-size15px; font-weight1000; color#ffe58a; }
+
+ BUTTONS 
+.main-button{ width100%; height58px; border0; border-radius17px; font-size20px; font-weight1000; cursorpointer; color#472900; background linear-gradient(180deg, #fff07e, #ffd13e 42%, #d8950f); border3px solid #ffe98a; box-shadow 0 6px 0 #815507, 0 10px 20px #0009; }
+.main-buttonactive{ transformtranslateY(5px); box-shadow 0 1px 0 #815507; }
+.main-buttondisabled{ opacity.5; cursornot-allowed; }
+.ad-button{ width100%; height50px; margin-top10px; border-radius15px; border1px solid #536f7e; background linear-gradient(145deg, #173b4d, #0b2534); color#fff; font-size15px; font-weight1000; cursorpointer; }
+.stats{ displaygrid; grid-template-columns repeat(3,1fr); gap7px; margin-top13px; }
+.stat{ text-aligncenter; padding9px 3px; border-radius13px; background#06141eaa; border1px solid #294858; }
+.stat b{ displayblock; font-size18px; }
+.stat span{ color#8da6b2; font-size9px; font-weightbold; }
+
+ POPUP 
+.popup{ positionfixed; inset0; z-index100; displaynone; align-itemscenter; justify-contentcenter; padding20px; background#000c; }
+.popup.show{ displayflex; }
+.popup-box{ width100%; max-width350px; padding26px 18px; text-aligncenter; border-radius27px; background linear-gradient(145deg, #19485d, #071b29); border2px solid #ffd54d; box-shadow 0 0 25px #ffc92888; animation popupIn .35s cubic-bezier(.2,1.4,.4,1); }
+@keyframes popupIn{ from{ opacity0; transform scale(.5); } to{ opacity1; transform scale(1); } }
+.popup-icon{ font-size50px; }
+.popup-title{ margin-top7px; font-size22px; font-weight1000; color#ffe56b; }
+.popup-reward{ margin10px 0 18px; font-size15px; color#fff; line-height1.4; }
+.popup-button{ width100%; height45px; border0; border-radius14px; background linear-gradient(#ffe36b, #d99a17); color#472900; font-size16px; font-weight1000; cursorpointer; }
+.cooldown{ color#7896a3; font-size11px; text-aligncenter; margin-top6px; font-weight bold; }
+style
+head
+
+body
+
+div class=app
+
+    div class=header
+        div class=pirate🎮div
+        div class=titleFUN FOR PLAYdiv
+        div class=subtitleSpin • Earn Coins • Cashoutdiv
+    div
+
+    !-- LEVEL & BALANCE BAR --
+    div class=top-bar
+        div class=level-container
+            divLEVEL span id=level-num1spandiv
+            div class=xp-bar-bgdiv class=xp-bar-fill id=xp-filldivdiv
+        div
+
+        div class=balance
+            div class=coinCdiv
+            div class=balance-number id=coins1000div
+        div
+    div
+
+    !-- SIDE-BY-SIDE NAVIGATION TABS --
+    div class=nav-buttons
+        button class=nav-btn active id=btn-game onclick=switchTab('game')🎰 GAMEbutton
+        button class=nav-btn id=btn-withdraw onclick=switchTab('withdraw')💸 WITHDRAWbutton
+    div
+
+    !-- TAB 1 GAME MACHINE --
+    div id=game-tab class=tab-content active
+        div class=machine
+            div class=machine-bardiv
+
+            div class=reel-frame
+                div class=reels
+                    div class=reel id=reel0div class=symbolsdivdiv class=reel-centerdivdiv class=reel-fadedivdiv
+                    div class=reel id=reel1div class=symbolsdivdiv class=reel-centerdivdiv class=reel-fadedivdiv
+                    div class=reel id=reel2div class=symbolsdivdiv class=reel-centerdivdiv class=reel-fadedivdiv
+                div
+            div
+
+            div class=paytable
+                div class=pay-title🪙 REWARD TABLEdiv
+                div class=pay-rowspan💎 💎 💎spanspan+500spandiv
+                div class=pay-rowspan👑 👑 👑spanspan+300spandiv
+                div class=pay-rowspan💰 💰 💰spanspan+200spandiv
+                div class=pay-rowspan🪙 🪙 🪙spanspan+100spandiv
+                div class=pay-rowspanAny 2 Matchspanspan+30spandiv
+            div
+
+            div class=status id=statusReady to Spin!div
+
+            button class=main-button id=spinButton🎰 SPIN — 10 COINSbutton
+            button class=ad-button id=adButton🎁 WATCH AD & GET +100 COINSbutton
+            div class=cooldown id=cooldowndiv
+
+            div class=stats
+                div class=statb id=spins0bspanSPINSspandiv
+                div class=statb id=wins0bspanWINSspandiv
+                div class=statb id=best0bspanBEST WINspandiv
+            div
+        div
+    div
+
+    !-- TAB 2 WITHDRAW  CASHOUT (SIDE TAB) --
+    div id=withdraw-tab class=tab-content
+        div class=withdraw-card
+            div class=withdraw-title💸 CASHOUT  WITHDRAWdiv
+            
+            div style=font-size 11px; color #ffe58a; text-aligncenter; margin-bottom 15px; background #06141e; padding 8px; border-radius 8px;
+                Rate 1000 Coins = $0.05 USD  ৳5.50 BDT
+            div
+
+            div class=withdraw-form
+                labelSelect Payment Methodlabel
+                select id=withdraw-method
+                    option value=bKashbKash (BD Only)option
+                    option value=NagadNagad (BD Only)option
+                    option value=PayPal  CryptoPayPal  Crypto  Other (Global)option
+                select
+
+                labelCoin Amount (Min 1,000 Coins)label
+                input type=number id=withdraw-coins placeholder=e.g. 1000 min=1000
+
+                labelAccount Number  Wallet Addresslabel
+                input type=text id=withdraw-number placeholder=Enter BkashNagadEmailWallet
+
+                button class=withdraw-btn onclick=submitWithdraw()SUBMIT WITHDRAWALbutton
+            div
+        div
+    div
+
+div
+
+!-- POPUP --
+div class=popup id=popup
+    div class=popup-box
+        div class=popup-icon id=popupIcon🏆div
+        div class=popup-title id=popupTitleBIG WIN!div
+        div class=popup-reward id=popupReward+500 COINSdiv
+        button class=popup-button id=popupButtonCONTINUEbutton
+    div
+div
+
+script
+    const SPIN_COST = 10;
+    const AD_REWARD = 100;
+    
+     
+      CHANGED 5 Minutes Cooldown (300 seconds)
+     
+    const AD_COOLDOWN = 300; 
+
+    const symbols = [
+        { icon 💎, value 500 },
+        { icon 👑, value 300 },
+        { icon 💰, value 200 },
+        { icon 🪙, value 100 },
+        { icon 🍒, value 60 },
+        { icon 🔱, value 40 },
+        { icon ⚓, value 30 }
+    ];
+
+    let coins = Number(localStorage.getItem(pirate_coins))  1000;
+    let spins = Number(localStorage.getItem(pirate_spins))  0;
+    let wins = Number(localStorage.getItem(pirate_wins))  0;
+    let best = Number(localStorage.getItem(pirate_best))  0;
+    let level = Number(localStorage.getItem(pirate_level))  1;
+    let xp = Number(localStorage.getItem(pirate_xp))  0;
+
+    let spinning = false;
+    let adRunning = false;
+    let adCooldownUntil = Number(localStorage.getItem(ad_cooldown_until))  0;
+
+    const coinsEl = document.getElementById(coins);
+    const spinsEl = document.getElementById(spins);
+    const winsEl = document.getElementById(wins);
+    const bestEl = document.getElementById(best);
+    const statusEl = document.getElementById(status);
+    const spinButton = document.getElementById(spinButton);
+    const adButton = document.getElementById(adButton);
+    const cooldownEl = document.getElementById(cooldown);
+    const popup = document.getElementById(popup);
+    const popupIcon = document.getElementById(popupIcon);
+    const popupTitle = document.getElementById(popupTitle);
+    const popupReward = document.getElementById(popupReward);
+    const popupButton = document.getElementById(popupButton);
+
+    const reels = [document.getElementById(reel0), document.getElementById(reel1), document.getElementById(reel2)];
+
+    function save(){
+        localStorage.setItem(pirate_coins, coins);
+        localStorage.setItem(pirate_spins, spins);
+        localStorage.setItem(pirate_wins, wins);
+        localStorage.setItem(pirate_best, best);
+        localStorage.setItem(pirate_level, level);
+        localStorage.setItem(pirate_xp, xp);
+        localStorage.setItem(ad_cooldown_until, adCooldownUntil);
+    }
+
+    function addXP(amount) {
+        xp += amount;
+        let nextLevelXp = level  100;
+        if (xp = nextLevelXp) {
+            xp -= nextLevelXp;
+            level++;
+            showPopup(⭐, LEVEL UP!, 🎉 Level  + level +  Reached!nBonus +200 Coins!);
+            coins += 200;
+        }
+        updateUI();
+    }
+
+    function updateUI(){
+        coinsEl.textContent = coins.toLocaleString();
+        spinsEl.textContent = spins.toLocaleString();
+        winsEl.textContent = wins.toLocaleString();
+        bestEl.textContent = best.toLocaleString();
+        
+        document.getElementById(level-num).textContent = level;
+        let nextLevelXp = level  100;
+        let xpPct = Math.min(100, (xp  nextLevelXp)  100);
+        document.getElementById(xp-fill).style.width = xpPct + %;
+
+        updateAdCooldown();
+    }
+
+    function switchTab(tab) {
+        if(tab === 'game') {
+            document.getElementById(game-tab).classList.add(active);
+            document.getElementById(withdraw-tab).classList.remove(active);
+            document.getElementById(btn-game).classList.add(active);
+            document.getElementById(btn-withdraw).classList.remove(active);
+        } else {
+            document.getElementById(game-tab).classList.remove(active);
+            document.getElementById(withdraw-tab).classList.add(active);
+            document.getElementById(btn-withdraw).classList.add(active);
+            document.getElementById(btn-game).classList.remove(active);
+        }
+    }
+
+    function submitWithdraw() {
+        const method = document.getElementById(withdraw-method).value;
+        const reqCoins = Number(document.getElementById(withdraw-coins).value);
+        const address = document.getElementById(withdraw-number).value.trim();
+
+        if(!reqCoins  reqCoins  1000) {
+            showPopup(❌, Invalid Amount, Minimum withdrawal is 1,000 coins.);
+            return;
+        }
+        if(!address  address.length  5) {
+            showPopup(❌, Invalid Account, Please enter a valid account or wallet details.);
+            return;
+        }
+        if(coins  reqCoins) {
+            showPopup(❌, Insufficient Balance, You don't have enough coins.);
+            return;
+        }
+
+        coins -= reqCoins;
+        save();
+        updateUI();
+
+        showPopup(✅, Request Submitted!, Withdrawal request for  + reqCoins +  coins received.nMethod  + method + nAccount  + address);
+        
+        document.getElementById(withdraw-coins).value = ;
+        document.getElementById(withdraw-number).value = ;
+    }
+
+    function buildReel(reel){
+        const container = reel.querySelector(.symbols);
+        container.innerHTML = ;
+        for(let i = 0; i  42; i++){
+            const item = symbols[i % symbols.length];
+            const div = document.createElement(div);
+            div.className = symbol;
+            div.textContent = item.icon;
+            container.appendChild(div);
+        }
+        container.style.transform = translateY(0px);
+    }
+
+    reels.forEach(buildReel);
+
+    function generateResult(){
+        const r = Math.random();
+        if(r  0.08){
+            const x = Math.floor(Math.random()  symbols.length);
+            return [x,x,x];
+        }
+        if(r  0.25){
+            const x = Math.floor(Math.random()  symbols.length);
+            let y = Math.floor(Math.random()  symbols.length);
+            while(y === x){ y = Math.floor(Math.random()  symbols.length); }
+            return [x,x,y];
+        }
+        return [Math.floor(Math.random()  symbols.length), Math.floor(Math.random()  symbols.length), Math.floor(Math.random()  symbols.length)];
+    }
+
+    function spinReel(reel, resultIndex, duration){
+        return new Promise(resolve = {
+            const container = reel.querySelector(.symbols);
+            const height = 154;
+            const target = 42 - 8 + resultIndex;
+            const finalY = -(target  height);
+            container.style.transition = none;
+            container.style.transform = translateY(0px);
+            reel.classList.add(spinning);
+            void container.offsetHeight;
+            container.style.transition = `transform ${duration}ms cubic-bezier(.10,.70,.16,1)`;
+            container.style.transform = `translateY(${finalY}px)`;
+            setTimeout(() = { reel.classList.remove(spinning); resolve(); }, duration + 40);
+        });
+    }
+
+    function showPopup(icon, title, reward) {
+        popupIcon.textContent = icon;
+        popupTitle.textContent = title;
+        popupReward.innerText = reward;
+        popup.classList.add(show);
+    }
+
+    function processResult(result){
+        const a = result[0], b = result[1], c = result[2];
+        let winAmount = 0;
+
+        if(a === b && b === c){
+            winAmount = symbols[a].value;
+            statusEl.textContent = 🏆 JACKPOT! + + winAmount +  COINS;
+            showPopup(🏆, JACKPOT!, + + winAmount +  COINS);
+            addXP(50);
+        } else if(a === b  a === c  b === c){
+            winAmount = 30;
+            statusEl.textContent = ✨ MATCH! +30 COINS;
+            showPopup(✨, NICE MATCH!, +30 COINS);
+            addXP(25);
+        } else {
+            statusEl.textContent = 💀 No match — Try Again!;
+            addXP(10);
+        }
+
+        if(winAmount  0) {
+            coins += winAmount;
+            wins++;
+            if(winAmount  best) best = winAmount;
+        }
+
+        updateUI();
+        save();
+    }
+
+    async function spin(){
+        if(spinning) return;
+        if(coins  SPIN_COST){ statusEl.textContent = 💰 Not enough coins!; return; }
+
+        spinning = true;
+        spinButton.disabled = true;
+        adButton.disabled = true;
+
+        coins -= SPIN_COST;
+        spins++;
+        statusEl.textContent = 🎰 Reels spinning...;
+        updateUI();
+
+        const result = generateResult();
+        await Promise.all([
+            spinReel(reels[0], result[0], 1900),
+            spinReel(reels[1], result[1], 2450),
+            spinReel(reels[2], result[2], 3050)
+        ]);
+
+        processResult(result);
+        spinning = false;
+        if(!popup.classList.contains(show)){
+            spinButton.disabled = false;
+            adButton.disabled = false;
+        }
+    }
+
+    function updateAdCooldown(){
+        const now = Date.now();
+        if(adCooldownUntil  now){
+            const totalSeconds = Math.ceil((adCooldownUntil - now)  1000);
+            const minutes = Math.floor(totalSeconds  60);
+            const seconds = totalSeconds % 60;
+            
+            adButton.disabled = true;
+            cooldownEl.textContent = Next bonus in  + minutes + m  + seconds + s;
+        }else{
+            if(!adRunning) adButton.disabled = false;
+            cooldownEl.textContent = ;
+        }
+    }
+
+    setInterval(updateAdCooldown, 1000);
+
+    adButton.addEventListener(click, async () = {
+        if(adRunning  Date.now()  adCooldownUntil) return;
+        adRunning = true;
+        adButton.disabled = true;
+        spinButton.disabled = true;
+        statusEl.textContent = 🎁 Opening rewarded ad...;
+
+        if(typeof show_11802922 !== function){
+            statusEl.textContent = Ad is not ready. Please try again.;
+            adRunning = false;
+            spinButton.disabled = false;
+            return;
+        }
+
+        try{
+            await show_11802922();
+            coins += AD_REWARD;
+            addXP(30);
+            statusEl.textContent = 🎁 Bonus received! + + AD_REWARD +  COINS;
+            showPopup(🎁, BONUS RECEIVED!, + + AD_REWARD +  COINS);
+            
+             5-minute timer start
+            adCooldownUntil = Date.now() + (AD_COOLDOWN  1000);
+            updateUI();
+            save();
+        }catch(error){
+            statusEl.textContent = Ad was not completed.;
+        }finally{
+            adRunning = false;
+            spinButton.disabled = false;
+            updateAdCooldown();
+        }
+    });
+
+    popupButton.addEventListener(click, () = {
+        popup.classList.remove(show);
+        statusEl.textContent = Ready to Spin!;
+        spinButton.disabled = false;
+        updateAdCooldown();
+    });
+
+    spinButton.addEventListener(click, spin);
+    updateUI();
+script
+
+body
+html
